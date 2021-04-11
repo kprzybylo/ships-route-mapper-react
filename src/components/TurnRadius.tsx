@@ -1,9 +1,14 @@
-import { Grid, Slider } from "@material-ui/core";
+import { Grid, Slider, Typography } from "@material-ui/core";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setTurnRadius } from "../redux/actions";
 import { getTurnRadius } from "../redux/selectors";
 
+const sliderValues = {
+    minValue: 20,
+    maxValue: 200,
+    defaultValue: 20
+}
 
 function TurnRadius() {
     const turnRadius: number = useSelector(getTurnRadius);
@@ -19,22 +24,26 @@ function TurnRadius() {
 
     return (
         <>
+            <Typography id="continous-slider" gutterBottom>
+                Turn radius: {turnRadius} m
+            </Typography>
             <Grid container spacing={2}>
                 <Grid item>
-                    {turnRadius}
+                    {sliderValues.minValue} m
                 </Grid>
                 <Grid item xs>
                     <Slider
-                        defaultValue={turnRadius}
+                        defaultValue={sliderValues.defaultValue}
+                        value={turnRadius}
                         aria-labelledby="continuous-slider"
                         valueLabelDisplay="auto"
-                        min={20}
-                        max={200}
+                        min={sliderValues.minValue}
+                        max={sliderValues.maxValue}
                         onChange={handleChange}
                     />
                 </Grid>
                 <Grid item>
-                    {200}
+                    {sliderValues.maxValue} m
                 </Grid>
             </Grid>
         </>

@@ -1,7 +1,14 @@
-export interface Settings {
-    turnRadius: number
+import { MapPosition } from "../../model/map-position";
+
+export interface SettingsState {
+    turnRadius: number;
 };
 
+export interface MapState {
+    center: MapPosition;
+}
+
 export interface AppStore {
-    settings: Settings
+    settings: SettingsState;
+    map: MapState;
 };
