@@ -1,11 +1,11 @@
 import { Action, SetTurnRadiusAction, SET_TURN_RADIUS } from "../actionTypes";
-import { Settings } from "./storeTypes";
+import { SettingsState } from "./storeTypes";
 
-const initialState: Settings = {
+const initialState: SettingsState = {
     turnRadius: 20
 };
 
-export default function(state = initialState, action: Action<SetTurnRadiusAction>) {
+export default function settingsReducer(state = initialState, action: Action<SetTurnRadiusAction>) {
     switch (action.type) {
         case SET_TURN_RADIUS: {
             const { turnRadius } = action.payload;
