@@ -1,4 +1,4 @@
-import { Action, SetMapCenter, SET_MAP_CENTER } from "../actionTypes";
+import { Action, SetMapCenterAction, SET_MAP_CENTER } from "../actionTypes";
 import { MapState } from "./storeTypes";
 
 const initialState: MapState = {
@@ -8,7 +8,7 @@ const initialState: MapState = {
     }
 }
 
-export default function mapReducer(state = initialState, action: Action<SetMapCenter>) {
+export default function mapReducer(state = initialState, action: Action<SetMapCenterAction>) {
     switch (action.type) {
         case SET_MAP_CENTER: {
             const { center } = action.payload;

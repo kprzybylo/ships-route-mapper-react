@@ -1,5 +1,5 @@
-import { MapPosition } from "../model/map-position";
-import { Action, SetMapCenter, SetTurnRadiusAction, SET_MAP_CENTER, SET_TURN_RADIUS } from "./actionTypes";
+import { MarkerProps } from "@react-google-maps/api";
+import { Action, AddMarkerOnMapAction, ADD_MARKER_ON_MAP, SetMapCenterAction, SetTurnRadiusAction, SET_MAP_CENTER, SET_TURN_RADIUS } from "./actionTypes";
 
 export const setTurnRadius = (turnRadius: number): Action<SetTurnRadiusAction>  => ({
     type: SET_TURN_RADIUS,
@@ -8,9 +8,16 @@ export const setTurnRadius = (turnRadius: number): Action<SetTurnRadiusAction>  
     }
 });
 
-export const setMapCenter = (center: MapPosition): Action<SetMapCenter> => ({
+export const setMapCenter = (center: google.maps.LatLngLiteral): Action<SetMapCenterAction> => ({
     type: SET_MAP_CENTER,
     payload: {
         center
+    }
+});
+
+export const addMarkerOnMap = (marker: MarkerProps): Action<AddMarkerOnMapAction> => ({
+    type: ADD_MARKER_ON_MAP,
+    payload: {
+        marker
     }
 });
