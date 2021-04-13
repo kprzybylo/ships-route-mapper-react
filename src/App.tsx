@@ -1,4 +1,4 @@
-import TurnRadius from './components/TurnRadius';
+import TurnRadius from './containers/TurnRadius';
 import { Map } from './containers/Map';
 
 import { Grid } from "@material-ui/core";

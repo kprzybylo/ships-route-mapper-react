@@ -1,4 +1,4 @@
-import { MapPosition } from "../model/map-position";
+import { MarkerProps } from "@react-google-maps/api";
 
 export interface Action<T> {
     type: string,
@@ -11,6 +11,11 @@ export interface SetTurnRadiusAction {
 }
 
 export const SET_MAP_CENTER = "SET_MAP_CENTER";
-export interface SetMapCenter {
-    center: MapPosition
+export interface SetMapCenterAction {
+    center: google.maps.LatLngLiteral
+}
+
+export const ADD_MARKER_ON_MAP = "ADD_MARKER_ON_MAP";
+export interface AddMarkerOnMapAction {
+    marker: MarkerProps
 }
