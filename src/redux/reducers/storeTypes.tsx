@@ -1,4 +1,4 @@
-import { MarkersList } from "../../model/markers-list";
+import { MarkersListModel } from "../../model/markers-list.model";
 
 export interface SettingsState {
     turnRadius: number;
@@ -11,5 +11,5 @@ export interface MapState {
 export interface AppStore {
     settings: SettingsState;
     map: MapState;
-    markers: MarkersList;
+    markers: MarkersListModel;
 };
