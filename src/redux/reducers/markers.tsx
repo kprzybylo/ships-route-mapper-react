@@ -1,4 +1,3 @@
-import { MarkersList } from "../../model/markers-list";
 import { Action, AddMarkerOnMapAction, ADD_MARKER_ON_MAP } from "../actionTypes";
 
 export default function markersReducer(state = {}, action: Action<AddMarkerOnMapAction>) {

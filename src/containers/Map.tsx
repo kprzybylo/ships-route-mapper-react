@@ -1,8 +1,9 @@
 import { GoogleMap, Marker, MarkerProps, useJsApiLoader } from '@react-google-maps/api';
 import { useDispatch, useSelector } from 'react-redux';
-import { MarkersList } from '../model/markers-list';
+import { MarkersListModel } from '../model/markers-list.model';
 import { addMarkerOnMap } from '../redux/actions';
 import { getMapCenter, getMarkersList } from '../redux/selectors';
+import { GoogleMapsUtil } from '../utils/google-maps.util';
 
 const containerStyle = {
     width: '98%',
@@ -30,8 +31,7 @@ export function Map() {
 
     const dispatch = useDispatch();
     const center: google.maps.LatLngLiteral = useSelector(getMapCenter);
-    const markers: MarkersList = useSelector(getMarkersList);
-    console.log(markers);
+    const markers: MarkersListModel = useSelector(getMarkersList);
 
     return isLoaded ?
         <GoogleMap
@@ -39,11 +39,15 @@ export function Map() {
             center={center}
             zoom={8}
             onClick={handleClick}
+            options={{
+                styles: GoogleMapsUtil.standardMapStyle()
+            }}
         >
             {
                 markers && Object.values(markers)
                     .map((markerProps: MarkerProps) => <Marker
                         {...markerProps}
+                        key={markerProps.position.toString()}
                     />)
             }
         </GoogleMap>
