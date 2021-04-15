@@ -1,9 +1,5 @@
 import { MarkerProps } from "@react-google-maps/api";
-
-export interface Action<T> {
-    type: string,
-    payload: T
-}
+import { PayloadAction } from "@reduxjs/toolkit";
 
 export const SET_TURN_RADIUS = "SET_TURN_RADIUS";
 export interface SetTurnRadiusAction {
@@ -19,3 +15,10 @@ export const ADD_MARKER_ON_MAP = "ADD_MARKER_ON_MAP";
 export interface AddMarkerOnMapAction {
     marker: MarkerProps
 }
+
+export const REMOVE_MARKER_FROM_MAP = "REMOVE_MARKER_FROM_MAP";
+export interface RemoveMarkerFromMapAction {
+    markerPosition: google.maps.LatLngLiteral
+}
+
+export type MarkerActions = PayloadAction<AddMarkerOnMapAction> | PayloadAction<RemoveMarkerFromMapAction>;
