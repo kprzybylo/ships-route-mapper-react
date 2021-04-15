@@ -1,5 +1,5 @@
 import { MarkerProps } from "@react-google-maps/api";
-import { Action, PayloadAction } from "@reduxjs/toolkit";
+import { PayloadAction } from "@reduxjs/toolkit";
 
 export const SET_TURN_RADIUS = "SET_TURN_RADIUS";
 export interface SetTurnRadiusAction {
