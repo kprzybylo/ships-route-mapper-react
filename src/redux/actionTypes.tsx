@@ -11,6 +11,8 @@ export interface SetMapCenterAction {
     center: google.maps.LatLngLiteral
 }
 
+export type MapActions = PayloadAction<SetMapCenterAction>;
+
 export const ADD_MARKER_ON_MAP = "ADD_MARKER_ON_MAP";
 export interface AddMarkerOnMapAction {
     marker: MarkerProps

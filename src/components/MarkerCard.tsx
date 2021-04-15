@@ -2,7 +2,7 @@ import { Card, CardContent, Grid, IconButton, Typography } from "@material-ui/co
 import { Delete, MyLocation } from "@material-ui/icons";
 import { MarkerProps } from "@react-google-maps/api";
 import { useDispatch } from "react-redux";
-import { removeMarkerFromMap } from "../redux/actions";
+import { removeMarkerFromMap, setMapCenter } from "../redux/actions";
 import { GoogleMapsUtil } from "../utils/google-maps.util";
 
 function MarkerCard(props: {
@@ -30,7 +30,9 @@ function MarkerCard(props: {
                             justify="center" alignItems="center"
                         >
                             <Grid item>
-                                <IconButton className="text-primary">
+                                <IconButton className="text-primary"
+                                    onClick={() => dispatch(setMapCenter(position))}
+                                >
                                     <MyLocation />
                                 </IconButton>
                             </Grid>
