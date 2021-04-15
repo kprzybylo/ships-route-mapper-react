@@ -1,5 +1,5 @@
 import { MarkerProps } from "@react-google-maps/api";
-import { PayloadAction } from "@reduxjs/toolkit";
+import { Action, PayloadAction } from "@reduxjs/toolkit";
 import { 
     AddMarkerOnMapAction, 
     ADD_MARKER_ON_MAP, 

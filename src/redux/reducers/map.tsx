@@ -1,5 +1,5 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { SetMapCenterAction, SET_MAP_CENTER } from "../actionTypes";
+import { MapActions, SetMapCenterAction, SET_MAP_CENTER } from "../actionTypes";
 import { MapState } from "./storeTypes";
 
 const initialState: MapState = {
@@ -9,10 +9,10 @@ const initialState: MapState = {
     }
 }
 
-export default function mapReducer(state = initialState, action: PayloadAction<SetMapCenterAction>) {
+export default function mapReducer(state = initialState, action: MapActions) {
     switch (action.type) {
         case SET_MAP_CENTER: {
-            const { center } = action.payload;
+            const { center } = (action as PayloadAction<SetMapCenterAction>).payload;
 
             return {
                 ...state,
