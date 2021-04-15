@@ -1,11 +1,14 @@
 import { Card, CardContent, Grid, IconButton, Typography } from "@material-ui/core";
 import { Delete, MyLocation } from "@material-ui/icons";
 import { MarkerProps } from "@react-google-maps/api";
+import { useDispatch } from "react-redux";
+import { removeMarkerFromMap } from "../redux/actions";
 import { GoogleMapsUtil } from "../utils/google-maps.util";
 
 function MarkerCard(props: {
     marker: MarkerProps
 }) {
+    const dispatch = useDispatch();
     const position = GoogleMapsUtil.toLatLngLiteral(props.marker.position);
 
     return (
@@ -32,7 +35,9 @@ function MarkerCard(props: {
                                 </IconButton>
                             </Grid>
                             <Grid item>
-                                <IconButton className="text-danger">
+                                <IconButton className="text-danger" 
+                                    onClick={() => dispatch(removeMarkerFromMap(position))}
+                                >
                                     <Delete />
                                 </IconButton>
                             </Grid>

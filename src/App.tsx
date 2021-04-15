@@ -7,11 +7,11 @@ import MarkersList from './containers/MarkersList';
 function App() {
   return (
     <Grid container spacing={0} className="h-100 bg-light">
-      <Grid item xs={4}>
+      <Grid item xs={4} className="mh-100">
         <div className="m-3">
           <TurnRadius />
         </div>
-        <div className="m-3">
+        <div className="mt-4 mb-4 h-75 overflow-auto">
           <MarkersList />
         </div>
       </Grid>
