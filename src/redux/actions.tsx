@@ -8,7 +8,9 @@ import {
     SET_MAP_CENTER, 
     SET_TURN_RADIUS,
     REMOVE_MARKER_FROM_MAP,
-    RemoveMarkerFromMapAction
+    RemoveMarkerFromMapAction,
+    ROTATE_MARKER_ON_MAP,
+    RotateMarkerOnMapAction
 } from "./actionTypes";
 
 export const setTurnRadius = (turnRadius: number): PayloadAction<SetTurnRadiusAction>  => ({
@@ -36,5 +38,13 @@ export const removeMarkerFromMap = (markerPosition: google.maps.LatLngLiteral): 
     type: REMOVE_MARKER_FROM_MAP,
     payload: {
         markerPosition
+    }
+});
+
+export const rotateMarkerOnMap = (markerPosition: google.maps.LatLngLiteral, newDirection: number): PayloadAction<RotateMarkerOnMapAction> => ({
+    type: ROTATE_MARKER_ON_MAP,
+    payload: {
+        markerPosition,
+        newDirection
     }
 });

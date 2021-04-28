@@ -23,4 +23,11 @@ export interface RemoveMarkerFromMapAction {
     markerPosition: google.maps.LatLngLiteral
 }
 
-export type MarkerActions = PayloadAction<AddMarkerOnMapAction> | PayloadAction<RemoveMarkerFromMapAction>;
+export const ROTATE_MARKER_ON_MAP = "ROTATE_MARKER_ON_MAP";
+export interface RotateMarkerOnMapAction {
+    markerPosition: google.maps.LatLngLiteral,
+    newDirection: number
+}
+
+export type MarkerActions = PayloadAction<AddMarkerOnMapAction> | PayloadAction<RemoveMarkerFromMapAction>
+    | PayloadAction<RotateMarkerOnMapAction>;

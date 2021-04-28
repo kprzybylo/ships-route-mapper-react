@@ -22,8 +22,12 @@ export function Map() {
             dispatch(addMarkerOnMap({
                 position: e.latLng,
                 icon: {
-                    url: "/icons/compass.svg",
-                    scaledSize: new google.maps.Size(15, 15)
+                    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+                    scale: 3,
+                    strokeColor: "#000",
+                    fillColor: "#000",
+                    fillOpacity: 1,
+                    rotation: 0
                 }
             }));
         }
