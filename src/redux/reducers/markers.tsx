@@ -5,7 +5,9 @@ import {
     ADD_MARKER_ON_MAP,
     MarkerActions,
     RemoveMarkerFromMapAction,
-    REMOVE_MARKER_FROM_MAP
+    REMOVE_MARKER_FROM_MAP,
+    RotateMarkerOnMapAction,
+    ROTATE_MARKER_ON_MAP
 } from "../actionTypes";
 
 function positionAsString(position: google.maps.LatLngLiteral | google.maps.LatLng): string {
@@ -34,6 +36,22 @@ export default function markersReducer(state: MarkersListModel = {}, action: Mar
                 Object.entries(state)
                     .filter(([key, value]: [string, MarkerProps]) => key !== positionAsString(markerPosition))
             );
+        }
+
+        case ROTATE_MARKER_ON_MAP: {
+            let { markerPosition, newDirection } = (action.payload as RotateMarkerOnMapAction); 
+            const markerId = positionAsString(markerPosition);            
+
+            return {
+                ...state,
+                [markerId]: {
+                    ...state[markerId],
+                    icon: {
+                        ...(state[markerId].icon as google.maps.Symbol),
+                        rotation: newDirection
+                    }
+                }
+            }
         }
 
         default:
